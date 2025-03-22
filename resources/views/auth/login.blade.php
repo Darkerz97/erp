@@ -36,26 +36,26 @@
                             <h4 class="mt-1 mb-5 pb-1">Inicio de Sesion</h4>
                           </div>
           
-                         <form action="{{route('home')}}" method="post"> 
+                         <form action="{{route('login')}}" method="post"> 
                             @csrf
 
                             <p>Porfavor Inicie Sesion con Usuario y Contraseña</p>
           
                             <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="text"  name="name" id="form2Example11" class="form-control"
-                                placeholder="numero de empleado" />
-                              <label class="form-label" for="form2Example11">Usuario</label>
-                            </div>
-
-                            <div data-mdb-input-init class="form-outline mb-4">
                               <input type="email"  name="email" id="email" class="form-control"
-                                placeholder="numero de empleado" />
-                              <label class="form-label" for="form2Example11">correo</label>
+                                placeholder="Correo Registrado" />
+                              <label class="form-label" for="form2Example11">Usuario</label>
+                                @error('email')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                                 @enderror
                             </div>
           
                             <div data-mdb-input-init class="form-outline mb-4">
                               <input type="password" name="password" id="form2Example22" class="form-control" />
                               <label class="form-label" for="form2Example22">Contraseña</label>
+                              @error('password')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                             @enderror
                             </div>
           
                             <div class="text-center pt-1 mb-5 pb-1">
