@@ -31,18 +31,45 @@
                   <div class="card-body p-5">
                     <h2 class="text-uppercase text-center mb-5">Registrar Usuario</h2>
       
-                    <form action="{{route('register')}}" method="post">
+                    <form method="post" action="{{route('register')}}">
                      @csrf
       
                       <div data-mdb-input-init class="form-outline mb-4">
                         <input type="text" name="name" id="name" class="form-control form-control-lg" />
                         <label class="form-label" for="form3Example1cg">Nombre</label>
+                        @error('name')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        
                       </div>
+
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="email" name="email" id="email" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example4cg">Correo</label>
+                        @error('email')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example4cg">Confirme Contraseña</label>
+                        @error('password_confirmation')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        
+                      </div>  
       
                       <div data-mdb-input-init class="form-outline mb-4">
                         <input type="password" name="password" id="password" class="form-control form-control-lg" />
                         <label class="form-label" for="form3Example4cg">Contraseña</label>
-                      </div>                
+                        @error('password')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        
+                      </div>        
+                      
+                      
+
       
                       <div class="d-flex justify-content-center">
                         <button  type="submit" data-mdb-button-init

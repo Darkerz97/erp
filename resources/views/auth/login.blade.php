@@ -46,6 +46,12 @@
                                 placeholder="numero de empleado" />
                               <label class="form-label" for="form2Example11">Usuario</label>
                             </div>
+
+                            <div data-mdb-input-init class="form-outline mb-4">
+                              <input type="email"  name="email" id="email" class="form-control"
+                                placeholder="numero de empleado" />
+                              <label class="form-label" for="form2Example11">correo</label>
+                            </div>
           
                             <div data-mdb-input-init class="form-outline mb-4">
                               <input type="password" name="password" id="form2Example22" class="form-control" />

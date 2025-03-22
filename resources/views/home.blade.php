@@ -19,6 +19,13 @@
     </head>
 
     <body>
+
+
+        sesion inciada con exito
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit">Cerrar Sesión</button>
+        </form>
         <header>
             <!-- place navbar here -->
         </header>
