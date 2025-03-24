@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         // este metodo define la estructura de la tabla
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id(); // ID autoincrementable y clave primaria
-            $table-> string('nombre_razon_social');
-            $table-> string('correo')->unique(); // Asegura que los correos sean únicos
-            $table-> string('locacion');
+            $table-> string('company_name');
+            $table-> string('company_email')->unique(); // Asegura que los correos sean únicos
+            $table-> string('company_location');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
     public function down(): void
     {
         // revierte la migracion(elimina la tabla)
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('customers');
     }
 };
