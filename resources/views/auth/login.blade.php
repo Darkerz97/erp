@@ -44,7 +44,7 @@
                             <div data-mdb-input-init class="form-outline mb-4">
                               <input type="email"  name="email" id="email" class="form-control"
                                 placeholder="Correo Registrado" />
-                              <label class="form-label" for="form2Example11">Usuario</label>
+                              <label class="form-label" for="form2Example11">Correo</label>
                                 @error('email')
                                   <div class="alert alert-danger">{{ $message }}</div>
                                  @enderror
