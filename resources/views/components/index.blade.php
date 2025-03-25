@@ -21,6 +21,47 @@
     <body>
         <header>
             <!-- place navbar here -->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Navbar</a>
+        
+                    <button
+                        data-mdb-collapse-init
+                        class="navbar-toggler"
+                        type="button"
+                        data-mdb-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <i class="fas fa-bars"></i>
+                    </button>
+        
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/components_view">registrar componente</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="d-flex align-items-center">
+                                    <span>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                            <button type="submit" class="btn btn-link px-3 me-2" style="background:none; border:none; padding:0; color:red;">Cerrar Sesión</button>
+                                        </form>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+
         </header>
         <main></main>
         <footer>
@@ -41,11 +82,14 @@
 
         <h1>Lista de Componentes</h1>
 
+        <link rel="stylesheet" href="{{ asset('assets/components_css/index.css') }}">
+       
+
     <table border="1">
         <thead>
             <tr>
                 <th>id</th>
-                <th>Descripción</th>
+                <th>description</th>
                 <th>package</th>
                 <th>part_number</th>
                 <th>quantity</th>
@@ -57,8 +101,14 @@
         <tbody>
             @foreach ($components as $component)
                 <tr>
-                    <td>{{ $component->nombre }}</td>
-                    <td>{{ $component->descripcion }}</td>
+                    <td>{{ $component->id }}</td>
+                    <td>{{ $component->description }}</td>
+                    <td>{{ $component->package }}</td>
+                    <td>{{ $component->part_number }}</td>
+                    <td>{{ $component->quantity }}</td>
+                    <td>{{ $component->created_at }}</td>
+                    <td>{{ $component->updated_at }}</td>
+                    <td>{{ $component->updated_at }}</td>
                 </tr>
             @endforeach
         </tbody>
