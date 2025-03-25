@@ -14,3 +14,5 @@ Route::get('/diagnosis', function () {
     return view('diagnosis');
 })->middleware('auth');
 
+
+
