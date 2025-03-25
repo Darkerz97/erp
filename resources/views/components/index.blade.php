@@ -40,12 +40,11 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/components_view">registrar componente</a>
                             </li>
-                            <li class="nav-item">
                                 <div class="d-flex align-items-center">
                                     <span>
                                         <form method="POST" action="{{ route('logout') }}">
@@ -85,12 +84,30 @@
         <link rel="stylesheet" href="{{ asset('assets/components_css/index.css') }}">
        
 
+    <form action="{{ route('components.index') }}" method="GET">
+        <input type="text" name="buscar" value="{{ $buscar }}" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+        
     <table border="1">
         <thead>
             <tr>
-                <th>id</th>
-                <th>description</th>
-                <th>package</th>
+                <th>
+                    <a  href="{{ route('components.index', ['ordenarpor' => 'id', 'orden' => $ordenarpor == 'id' && $orden == 'asc' ? 'desc' : 'asc']) }}">
+                        id
+                    </a>
+                    
+                </th>
+                <th>
+                    <a  href="{{ route('components.index', ['ordenarpor' => 'description', 'orden' => $ordenarpor == 'description' && $orden == 'asc' ? 'desc' : 'asc']) }}">
+                        description
+                    </a>
+                </th>
+                <th>
+                    <a  href="{{ route('components.index', ['ordenarpor' => 'package', 'orden' => $ordenarpor == 'package' && $orden == 'asc' ? 'desc' : 'asc']) }}">
+                        package
+                    </a>
+                </th>
                 <th>part_number</th>
                 <th>quantity</th>
                 <th>specs</th>

@@ -29,4 +29,4 @@ Route::post('/components', [component_controller::class, 'store']);
 
 
 
-Route::get('/components', [component_controller::class, 'index']);
+Route::get('/components', [component_controller::class, 'index'])->name('components.index');

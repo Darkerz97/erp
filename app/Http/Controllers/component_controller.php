@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\component;
+use Illuminate\Console\View\Components\Component as ComponentsComponent;
 use Illuminate\Http\Request;
 
 
@@ -34,10 +35,32 @@ class component_controller extends Controller
     
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $components = Component::all();
+
+        $buscar = $request->input('buscar');
+        $ordenarpor = $request ->input('ordenarPor','id');
+        $ordenarpor = $request ->input('ordenarPor','description');
+        $ordenarpor = $request ->input('ordenarPor','package');
+        $orden =$request ->input('orden','asc');
+
+
+        $components = Component::orderBy($ordenarpor,$orden)->paginate(10);
         //dd($components); linea para depurar 
-        return view('components.index', compact('components'));
+        $query =Component::orderBy($ordenarpor,$orden);
+
+        if ($buscar){
+            $query -> where ('id','like','%'.$buscar.'%')
+                    ->orWhere('description','like','%'.$buscar.'%')
+                    ->orWhere('part_number','like','%'.$buscar.'%')
+                    ->orWhere('quantity','like','%'.$buscar.'%')
+                    ->orWhere('specs','like','%'.$buscar.'%')
+                    ->orWhere('created_at','like','%'.$buscar.'%')
+                    ->orWhere('updated_at','like','%'.$buscar.'%');
+        }
+
+        $components =$query->paginate(10);
+
+        return view('components.index', compact('components','ordenarpor','orden','buscar'));
     }
 }
