@@ -5,7 +5,7 @@
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(
         to bottom right,
-        rgb(155, 52, 52),
+        rgb(216, 60, 60),
         rgba(245, 87, 108, 1)
     );
 
@@ -13,7 +13,7 @@
     background: linear-gradient(
         to bottom right,
         rgb(139, 58, 58),
-        rgb(233, 10, 40)
+        rgb(233, 59, 82)
     );
 }
 

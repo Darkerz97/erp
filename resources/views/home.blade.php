@@ -46,6 +46,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/components_view">registrar componente</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/storage">almacen</a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link">Disabled</a>
