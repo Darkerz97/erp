@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\component_controller;
-use App\Http\Controllers\dev_reg_controller;
+use App\Http\Controllers\DevRegController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,6 +43,9 @@ Route::post('/components', [component_controller::class, 'store']);
 
 Route::get('/components', [component_controller::class, 'index'])->name('components.index');
 
+
+
+Route::get('/repairs_reg', [DevRegController::class, 'index'])->name('repairs_reg.index');
 //rutas para el registro de equipos 
-Route::get('/repairs_reg/create', [dev_reg_controller::class,'create'])->name('dev_reg_controller.create');
-Route::post('/repairs_reg', [dev_reg_controller::class,'save'])->name('dev_reg_controller.save');
+Route::get('/repairs_reg/create', [DevRegController::class,'create'])->name('repairs_reg.create');
+Route::post('/repairs_reg/save', [DevRegController::class,'save'])->name('repairs_reg.save');

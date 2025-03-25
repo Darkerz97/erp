@@ -67,7 +67,7 @@
         </header>
         <main>
 
-            <form action="{{ route('dev_reg_controller.save') }}" method="POST">
+            <form action="{{ route('repairs_reg.save') }}" method="POST">
                 @csrf
         
                 <label for="arrival_date">Fecha de Llegada:</label><br>
