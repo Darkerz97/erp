@@ -16,7 +16,11 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+           
         <link rel="stylesheet" href="{{ asset('assets/formulario.css') }}">
+        <!-- se agrega jquery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     </head>
 
     <body>
@@ -77,16 +81,23 @@
                 @csrf
 
 
-                <label for="lab_worker">Equipo:</label><br>
-                <select name="lab_worker" id="lab_worker" required>
-                    <option value="">Selecciona un Ingeniero</option>
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option> 
+                <label for="devices">modelo:</label><br>
+                <select name="devices" id="device_model" required>
+                    <option value="">Selecciona modelo</option>
+                    @foreach ($devicesc as $device)
+                        <option value="{{ $device->id }}">{{ $device->model }}</option> 
                     @endforeach
                 </select><br><br>
-                
-        
 
+
+
+                    <div id="datos-equipo">
+                        <p>Equipo: <span id="comercial_name"></span></p>
+                        <p>Marca: <span id="brand"></span></p>
+                        {{-- Agrega aquí los demás campos que deseas mostrar --}}
+                    </div>
+
+             
 
                 <label for="serial_number">Número de Serie:</label><br>
                 <input type="text" name="serial_number" id="serial_number" required><br><br>
@@ -155,5 +166,37 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+
+
+        <!-- script para mostrar datos del equipo -->
+        <script>
+            $(document).ready(function() {
+                $('#device_model').change(function() {
+                    //console.log('evento change ejecutando'); //depuracion
+                    var deviceId = $(this).val();
+        
+                    if (deviceId) {
+                        $.ajax({
+                            url: '/obtener-datos-equipo/' + deviceId, // Ruta para obtener los datos del equipo
+                            type: 'GET',
+                            dataType: 'json',
+                            success: function(data) {
+                                $('#brand').text(data.brand);
+                                $('#comercial_name').text(data.comercial_name);
+                                // Actualiza aquí los demás campos con los datos recibidos
+                            },
+                            error: function() {
+                                alert('Error al obtener los datos del equipo.');
+                            }
+                        });
+                    } else {
+                        $('#marca').text('');
+                        $('#descripcion').text('');
+                        // Limpia aquí los demás campos
+                    }
+                });
+            });
+        </script>
+
     </body>
 </html>

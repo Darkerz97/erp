@@ -45,3 +45,7 @@ Route::get('/components', [component_controller::class, 'index'])->name('compone
 Route::get('/repairs_reg', [DevRegController::class, 'index'])->name('repairs_reg.index');
 Route::get('/repairs_reg/create', [DevRegController::class,'create'])->name('repairs_reg.create');
 Route::post('/repairs_reg/save', [DevRegController::class,'save'])->name('repairs_reg.save');
+
+
+//ruta para peticiones ajax en equipos
+Route::get('/obtener-datos-equipo/{id}', [DevRegController::class, 'obtenerDatosEquipo']);
