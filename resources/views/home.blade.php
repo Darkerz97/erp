@@ -41,7 +41,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/diagnosis">Diagnostico</a>
+                        <a class="nav-link" href="/lab">Laboratorio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/components_view">registrar componente</a>
