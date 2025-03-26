@@ -30,9 +30,6 @@ Route::get('/storage', function () {
 })->middleware('auth');
 
 
-Route::get('/repairs_reg', function () {
-    return view('/storage/repairs_reg_view');
-})->middleware('auth');
 
 
 //rutas para la creacion  de registros en los componentes
@@ -44,8 +41,7 @@ Route::post('/components', [component_controller::class, 'store']);
 Route::get('/components', [component_controller::class, 'index'])->name('components.index');
 
 
-
-Route::get('/repairs_reg', [DevRegController::class, 'index'])->name('repairs_reg.index');
 //rutas para el registro de equipos 
+Route::get('/repairs_reg', [DevRegController::class, 'index'])->name('repairs_reg.index');
 Route::get('/repairs_reg/create', [DevRegController::class,'create'])->name('repairs_reg.create');
 Route::post('/repairs_reg/save', [DevRegController::class,'save'])->name('repairs_reg.save');

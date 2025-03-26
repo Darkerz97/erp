@@ -47,7 +47,7 @@
                             <a class="nav-link active" aria-current="page" href="/components">Componentes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/repairs_reg">Reparaciones</a>
+                            <a class="nav-link active" aria-current="page" href="/repairs_reg/create">Reparaciones</a>
                         </li>
                     
                             <li class="nav-item">

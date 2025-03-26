@@ -32,7 +32,7 @@
                         <a class="nav-link" href="/components">Index</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/components_view">registrar equipo</a>
+                        <a class="nav-link" href="/repairs_reg">registrar equipo</a>
                     </li>
 
                     <li class="nav-item">
@@ -64,7 +64,8 @@
     rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
     crossorigin="anonymous"
-/>
+    />
+    <link rel="stylesheet" href="{{ asset('assets/formulario.css') }}">
 
 </head>
 <body>
@@ -74,7 +75,7 @@
 
     <form action="/components" method="POST">
         @csrf
-        <label for="description">description:</label><br>
+        <label for="description">descripcion:</label><br>
         <input type="text" name="description" required><br><br>
 
         <label for="package">Empaquetado:</label><br>
@@ -84,7 +85,7 @@
         <textarea name="part_number" required></textarea><br><br>
 
         <label for="quantity">Cantidad:</label><br>
-        <textarea name="quantity" required></textarea><br><br>
+        <input type="number" name="quantity" id="quantity" min="0" required></textarea><br><br>
 
         <label for="specs">Especificaciones:</label><br>
         <textarea name="specs" required></textarea><br><br>

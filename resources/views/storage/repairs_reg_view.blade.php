@@ -16,6 +16,7 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="{{ asset('assets/formulario.css') }}">
     </head>
 
     <body>
@@ -66,24 +67,55 @@
           </nav>
         </header>
         <main>
+            @if (session('success'))
+                 <div class="alert alert-success">
+                     {{ session('success') }}
+                 </div>
+            @endif
 
             <form action="{{ route('repairs_reg.save') }}" method="POST">
                 @csrf
+
+
+                <label for="lab_worker">Equipo:</label><br>
+                <select name="lab_worker" id="lab_worker" required>
+                    <option value="">Selecciona un Ingeniero</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option> 
+                    @endforeach
+                </select><br><br>
+                
         
-                <label for="arrival_date">Fecha de Llegada:</label><br>
-                <input type="date" name="arrival_date" id="arrival_date" required><br><br>
-        
-                <label for="shimpent_date">Fecha de Envío:</label><br>
-                <input type="date" name="shimpent_date" id="shimpent_date" required><br><br>
-        
+
+
                 <label for="serial_number">Número de Serie:</label><br>
                 <input type="text" name="serial_number" id="serial_number" required><br><br>
         
                 <label for="sales_worker">Vendedor:</label><br>
-                <input type="text" name="sales_worker" id="sales_worker" required><br><br>
+                <select name="sales_worker" id="sales_worker" required>
+                    <option value="">Selecciona un vendedor</option>
+                    @foreach ($salespe as $sales)
+                        <option value="{{ $sales->id }}">{{ $sales->name }}</option> {{-- Asumiendo que 'nombre' es el campo que muestra el nombre del cliente --}}
+                    @endforeach
+                </select><br><br>
+
+                <label for="cliente_id">Cliente:</label><br>
+                <select name="cliente_id" id="cliente_id" required>
+                    <option value="">Selecciona un cliente</option>
+                    @foreach ($customers as $customer)
+                        <option value="{{ $customer->id }}">{{ $customer->company_name }}</option> {{-- Asumiendo que 'nombre' es el campo que muestra el nombre del cliente --}}
+                    @endforeach
+                </select><br><br>
+
         
                 <label for="lab_worker">Técnico de Laboratorio:</label><br>
-                <input type="text" name="lab_worker" id="lab_worker" required><br><br>
+                <select name="lab_worker" id="lab_worker" required>
+                    <option value="">Selecciona un Ingeniero</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option> {{-- Asumiendo que 'nombre' es el campo que muestra el nombre del cliente --}}
+                    @endforeach
+                </select><br><br>
+
         
                 <label for="warehouse_address">Dirección de Almacén:</label><br>
                 <input type="text" name="warehouse_address" id="warehouse_address" required><br><br>
@@ -100,6 +132,7 @@
         
                 <button type="submit">Guardar Registro</button>
             </form>
+            
 
 
 

@@ -50,6 +50,23 @@
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
 
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <label class="form-label" for="form3Example4cg">Departamento</label>
+                            <select name="dpt" id="dpt">
+                              <option value="">Selecciona un departamento</option>
+                              <option value="ventas">Ventas</option>
+                              <option value="laboratorio">Laboratorio</option>
+                              <option value="contabilidad">Contabilidad</option>
+                              <option value="logistica">Logística</option>
+                              <option value="administracion">Administración</option>
+                              <option value="almacen">Almacén</option>
+                              <option value="desarrollo">Desarrollo</option>
+                            </select>
+
+                          @error('dpt')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
+                        </div>
                       <div data-mdb-input-init class="form-outline mb-4">
                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control form-control-lg" />
                         <label class="form-label" for="form3Example4cg">Confirme Contraseña</label>

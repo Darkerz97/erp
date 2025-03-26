@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id(); // ID autoincrementable y clave primaria con nombre 'id_equipo'
             $table->string('comercial_name');
+            $table->string('machine');
+            $table->string('family');
             $table->string('brand');
             $table->string('model');
             $table->string('dir_manual')->nullable(); //Permite valores nulos

@@ -29,7 +29,6 @@ class component_controller extends Controller
         ]);
 
         Component::create($request->except('_token'));
-        component::create($request->all());
         return redirect('/components/create') -> with ('success', 'Componente registrado correctamente');
     }
     
