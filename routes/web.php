@@ -53,3 +53,6 @@ Route::post('/repairs_reg/save', [DevRegController::class,'save'])->name('repair
 
 //ruta para peticiones ajax en equipos
 Route::get('/obtener-datos-equipo/{id}', [DevRegController::class, 'obtenerDatosEquipo']);
+
+
+//ruta parta busqueda de componentes en mouser

@@ -71,6 +71,7 @@
           </nav>
         </header>
         <main>
+
             @if (session('success'))
                  <div class="alert alert-success">
                      {{ session('success') }}
@@ -78,9 +79,8 @@
             @endif
 
             <form action="{{ route('repairs_reg.save') }}" method="POST">
+               
                 @csrf
-
-
                 <label for="devices">modelo:</label><br>
                 <select name="devices" id="device_model" required>
                     <option value="">Selecciona modelo</option>
