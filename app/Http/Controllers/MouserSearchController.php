@@ -9,13 +9,16 @@ class MouserSearchController extends Controller
 {
     public function search(Request $request)
     {
-        $query = $request->input('query');
-        $apiKey = env('1ece26b0-451b-b4e9-6e272caa03f9'); // Almacena tu API key en el archivo .env
+        
+        $query = $request->input('mouserPartNumber');
+        $apiKey = env('MOUSER_API_KEY');
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
             'apiKey' => $apiKey,
-        ])->get('https://api.mouser.com/api/v1/search/partnumber?mouserPartNumber=' . $query);
+        ])->post('https://api.mouser.com/api/v1/search/partnumber', [
+            'mouserPartNumber' => $query,
+        ]);
 
         return $response->json();
     }

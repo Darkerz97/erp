@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\component_controller;
 use App\Http\Controllers\DevRegController;
+use App\Http\Controllers\MouserSearchController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -56,3 +57,4 @@ Route::get('/obtener-datos-equipo/{id}', [DevRegController::class, 'obtenerDatos
 
 
 //ruta parta busqueda de componentes en mouser
+Route::post('api/mouser/search', [MouserSearchController::class, 'search']);

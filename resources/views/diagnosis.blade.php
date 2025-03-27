@@ -2,6 +2,7 @@
 <html lang="en">
   @livewireStyles
     <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Reporte</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
@@ -27,7 +28,7 @@
 
     @csrf
      <!-- place navbar here -->
-     @csrf
+     
          <nav class="navbar navbar-expand-lg bg-body-tertiary">
          <div class="container-fluid">
              <a class="navbar-brand" href="/home">Inicio</a>
