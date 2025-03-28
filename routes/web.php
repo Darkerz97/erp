@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\component_controller;
 use App\Http\Controllers\DevRegController;
 use App\Http\Controllers\MouserSearchController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,9 @@ Route::get('/index', function () {
 Route::get('/storage', function () {
     return view('/storage/index');
 })->middleware('auth');
+
+//ruta cierre de sesion 
+Route::post('/logout', [LoginController ::class, 'logout'])->name('logout');
 
 
 

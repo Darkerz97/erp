@@ -15,10 +15,15 @@ body {
         #dd3675,
         #b44593
     );
+}
 
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
     background-color: #333;
-    overflow: hidden;
+    color: rgb(0, 0, 0);
 }
 
 .navbar a {
@@ -79,11 +84,38 @@ body {
 
 .content {
     padding: 20px;
-    color: white; /* Ajusta el color del texto para que sea legible sobre la imagen de fondo */
+    color: rgb(
+        252,
+        3,
+        3
+    ); /* Ajusta el color del texto para que sea legible sobre la imagen de fondo */
 }
 
-.mi-div {
+/*barra de navegacion */
+.nav-bar {
     display: flex;
-    justify-content: flex-start; /* Alinea el contenido a la derecha */
-    align-items: center; /* Centra verticalmente */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-toggle {
+    display: none; /* Oculto en pantallas grandes */
+    font-size: 1.5rem;
 }

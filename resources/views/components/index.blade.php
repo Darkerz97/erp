@@ -21,44 +21,17 @@
     <body>
         <header>
             <!-- place navbar here -->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
-        
-                    <button
-                        data-mdb-collapse-init
-                        class="navbar-toggler"
-                        type="button"
-                        data-mdb-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <i class="fas fa-bars"></i>
-                    </button>
-        
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/storage">Inicio almacen</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/components_view">registrar componente</a>
-                            </li>
-                                <div class="d-flex align-items-center">
-                                    <span>
-                                        <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                            <button type="submit" class="btn btn-link px-3 me-2" style="background:none; border:none; padding:0; color:red;">Cerrar Sesión</button>
-                                        </form>
-                                    </span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+            <nav class="nav-bar">
+                <div class="nav-brand">
+                    <a href="home">Inicio</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/storage">Almacen</a></li>
+                    <li><a href="/components_view">Registrar componente</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <i class="fas fa-bars"></i>
                 </div>
             </nav>
 
@@ -81,10 +54,12 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        
 
         <h1>Lista de Componentes</h1>
 
         <link rel="stylesheet" href="{{ asset('assets/components_css/index.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/formulario.css') }}">
        
 
     <form action="{{ route('components.index') }}" method="GET">
